@@ -1,34 +1,3 @@
-const pages = ['home', 'about', 'gallery', 'packages', 'myorder', 'contact'];
-
-function showPage(page) {
-    pages.forEach(p => {
-        const el = document.getElementById(`${p}-page`);
-        if (el) {
-            el.style.display = p === page ? 'block' : 'none';
-        }
-    });
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        if (link.dataset.page === page) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const page = link.dataset.page;
-            showPage(page);
-        });
-    });
-    showPage('home');
-});
-
 function addToOrder(packageId) {
     let orders = JSON.parse(localStorage.getItem('orders') || '[]');
     if (!orders.includes(packageId)) {
@@ -76,14 +45,18 @@ function renderMyOrder() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    updateOrderCount();
-    renderMyOrder();
+    if (document.getElementById('order-count')) {
+        updateOrderCount();
+    }
+    if (document.getElementById('myorder-list')) {
+        renderMyOrder();
+    }
 });
 
 function submitContactForm() {
-    const name = document.getElementById('contact-name').value;
-    const email = document.getElementById('contact-email').value;
-    const message = document.getElementById('contact-message').value;
+    const name = document.getElementById('contact-name')?.value;
+    const email = document.getElementById('contact-email')?.value;
+    const message = document.getElementById('contact-message')?.value;
     if (name && email && message) {
         alert('Thank you for contacting us!');
         document.getElementById('contact-form').reset();
