@@ -85,6 +85,46 @@ nav {
   transform: rotate(90deg);
 }
 
+.herog {
+  background: url('gallery/main.webp') no-repeat center/cover;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.herog::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.herog h2 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  animation: fadeInDown 1s ease;
+  color: #ffd54f;
+}
+
+.herog p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  animation: fadeInUp 1.2s ease;
+}
+
+
+
+
 /* Mobile Menu */
 @media (max-width: 650px) {
   .nav-links {
@@ -133,11 +173,7 @@ nav {
 }
 
 /* Gallery Slidebar */
-.galleryslidebar {
-  text-align: center;
-  padding: 60px 20px;
-  background: #fff;
-}
+
 
 .galleryslidebar h2 {
   font-size: 2rem;
@@ -149,6 +185,7 @@ nav {
   max-width: 700px;
   margin: 0 auto 30px;
   color: #666;
+  font-size: 18px;
 }
 
 /* Full-width slider */
@@ -291,4 +328,286 @@ footer {
 footer p {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
+}
+
+
+/* about page css  */
+/* ------------------
+ Hero Section
+------------------ */
+.hero {
+  background: url('gallery/gokarna-forest-resort-scaled.jpg') no-repeat center/cover;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  animation: fadeInDown 1s ease;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  animation: fadeInUp 1.2s ease;
+}
+
+.hero .btn {
+  background: #ffd54f;
+  color: #000;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.hero .btn:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-3px);
+}
+
+/* ------------------
+ Description Section
+------------------ */
+.description {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.description h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.description p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* ------------------
+ Services Section
+------------------ */
+.services {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.service-cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.service-cards .card {
+  background: #f4f4f4;
+  padding: 25px;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-cards .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.service-cards .card i {
+  font-size: 2rem;
+  color: #ffd54f;
+  margin-bottom: 15px;
+}
+
+.service-cards .card h3 {
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.service-cards .card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ------------------
+ Rooms Showcase
+------------------ */
+.rooms-showcase {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.rooms-showcase h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.room-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.room-gallery .room {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+}
+
+.room-gallery .room:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.room-gallery .room img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.room-gallery .room h3 {
+  padding: 15px;
+  color: #222;
+}
+
+/* ------------------
+ Testimonials
+------------------ */
+.testimonials {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.testimonial-cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.testimonial {
+  background: #f4f4f4;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 300px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.testimonial h4 {
+  font-weight: 600;
+  color: #222;
+}
+
+/* ------------------
+ Call to Action (CTA)
+------------------ */
+.cta {
+  padding: 60px 20px;
+  background: #ffd54f;
+  text-align: center;
+  color: #000;
+}
+
+.cta h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.cta .btn {
+  background: #000;
+  color: #ffd54f;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cta .btn:hover {
+  background: #222;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ------------------
+ Animations
+------------------ */
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------
+ Responsive
+------------------ */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero p { font-size: 1rem; }
+  .service-cards, .room-gallery, .testimonial-cards {
+    flex-direction: column;
+    align-items: center;
+  }
 }
