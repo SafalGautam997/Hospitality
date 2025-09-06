@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gokarna Hospitality - Gallery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo"><a href="index.html"><i class="fa-solid fa-house"></i> Gokarna</a></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="services.html"><i class="fa-solid fa-calendar-week"></i> Services</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-address-card"></i> About</a></li>
+      <li><a href="rooms.html"><i class="fa-solid fa-hospital"></i> Rooms</a></li>
+      <li><a href="dining.html"><i class="fa-solid fa-utensils"></i> Dining</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a></li>
+      <li><a href="gallery.html" class="active"><i class="fa-solid fa-image"></i> Gallery</a></li>
+    </ul>
+    <div class="menu-toggle" id="menuToggle">&#9776;</div>
+  </nav>
+
+  <!-- Hero Section -->
+  <!-- <section class="herog">
+    <div class="hero-content">
+      <h2>Gallery</h2>
+      <p>Explore the beauty and elegance of Gokarna Village Resort</p>
+    </div>
+  </section> -->
+
+  <!-- Full-width Slider Section -->
+  <section class="gallery-slider">
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <img src="gallery/gokarna.webp" alt="Slide 1">
+        <img src="gallery/luxary.jpg" alt="Slide 2">
+        <img src="gallery/family.webp" alt="Slide 3">
+      </div>
+      <button class="prev" id="prev">&#10094;</button>
+      <button class="next" id="next">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- Image Grid Gallery -->
+  <section class="image-gallery">
+    <h2>Our Resort in Pictures</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="gallery/carttour.webp" alt="Deluxe Room"></div>
+      <div class="gallery-item"><img src="gallery/luxary.jpg" alt="Luxury Suite"></div>
+      <div class="gallery-item"><img src="gallery/family.webp" alt="Family Room"></div>
+      <div class="gallery-item"><img src="gallery/gokarna-forest-resort-scaled.jpg" alt="Spa"></div>
+      <div class="gallery-item"><img src="gallery/forestbathing.webp" alt="Dining"></div>
+      <div class="gallery-item"><img src="gallery/naturetreking.webp" alt="Swimming Pool"></div>
+      
+    <div class="gallery-item"><img src="gallery/gokarna.webp" alt="Deluxe Room"></div>
+      <div class="gallery-item"><img src="gallery/main.webp" alt="Luxury Suite"></div>
+      <div class="gallery-item"><img src="gallery/family.webp" alt="Family Room"></div>
+      <div class="gallery-item"><img src="gallery/spaandswimmingpool.jpeg" alt="Spa"></div>
+      <div class="gallery-item"><img src="gallery/cycling.webp" alt="Dining"></div>
+      <div class="gallery-item"><img src="gallery/diningbar.webp" alt="Swimming Pool"></div>
+      <div class="gallery-item"><img src="gallery/salad.jpg" alt="Spa"></div>
+      <div class="gallery-item"><img src="gallery/food.jpg" alt="Dining"></div>
+      <div class="gallery-item"><img src="gallery/vegthali.jpg" alt="Swimming Pool"></div>
+
+            <div class="gallery-item"><img src="gallery/carttour.webp" alt="Deluxe Room"></div>
+      <div class="gallery-item"><img src="gallery/luxary.jpg" alt="Luxury Suite"></div>
+      <div class="gallery-item"><img src="gallery/family.webp" alt="Family Room"></div>
+      <div class="gallery-item"><img src="gallery/gokarna-forest-resort-scaled.jpg" alt="Spa"></div>
+      <div class="gallery-item"><img src="gallery/forestbathing.webp" alt="Dining"></div>
+      <div class="gallery-item"><img src="gallery/naturetreking.webp" alt="Swimming Pool"></div>
+            <div class="gallery-item"><img src="gallery/diningbar.webp" alt="Swimming Pool"></div>
+      <div class="gallery-item"><img src="gallery/spaandswimmingpool.jpeg" alt="Spa"></div>
+      <div class="gallery-item"><img src="gallery/cycling.webp" alt="Dining"></div>
+      <div class="gallery-item"><img src="gallery/diningbar.webp" alt="Swimming Pool"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Gokarna Hospitality. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Slider functionality
+    const slider = document.getElementById("slider");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    let index = 0;
+
+    function showSlide(i) {
+      const total = slider.children.length;
+      index = (i + total) % total;
+      slider.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    prev.addEventListener("click", () => showSlide(index - 1));
+    next.addEventListener("click", () => showSlide(index + 1));
+
+    // Auto slide every 5 seconds
+    setInterval(() => showSlide(index + 1), 5000);
+  </script>
+</body>
+</html>

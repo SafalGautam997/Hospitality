@@ -18,7 +18,7 @@ body {
  Navbar
 ------------------ */
 nav {
-  background: #000;
+  background: #262121;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -126,7 +126,7 @@ nav {
 
 
 /* Mobile Menu */
-@media (max-width: 650px) {
+@media (max-width: 980px) {
   .nav-links {
     position: absolute;
     top: 70px;
@@ -363,9 +363,47 @@ footer p {
   font-size: 3rem;
   margin-bottom: 15px;
   animation: fadeInDown 1s ease;
+  color: #ffd54f;
 }
 
 .hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  animation: fadeInUp 1.2s ease;
+}
+
+.herof {
+  background: url('gallery/diningbar.webp') no-repeat center/cover;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.herof::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.herof-content {
+  position: relative;
+  z-index: 2;
+}
+
+.herof h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  animation: fadeInDown 1s ease;
+  color: #ffd54f;
+}
+
+.herof p {
   font-size: 1.2rem;
   margin-bottom: 20px;
   animation: fadeInUp 1.2s ease;
@@ -475,6 +513,11 @@ footer p {
   font-size: 2rem;
   margin-bottom: 40px;
   color: #222;
+}
+
+.rooms-showcase p
+{
+  padding:5px;
 }
 
 .room-gallery {
@@ -611,3 +654,175 @@ footer p {
     align-items: center;
   }
 }
+
+
+.activities {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.activities h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.activity {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.activity img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.activity h3 {
+  margin: 15px 0 10px;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.activity p {
+  padding: 0 15px 20px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.activity:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Section */
+.herog {
+  background: url('gallery/main.webp') no-repeat center/cover;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.herog::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.herog * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Gallery Slider */
+.gallery-slider {
+  position: relative;
+  width: 100%;
+  margin: 40px 0;
+  overflow: hidden;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Slider arrows */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Image Grid Gallery */
+.image-gallery {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.image-gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #fff;
+}
+
