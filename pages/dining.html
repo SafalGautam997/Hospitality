@@ -7,6 +7,50 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<style>
+		body.dining-bg {
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			transition: background-image 0.7s cubic-bezier(.4,0,.2,1);
+		}
+		.dining-cards {
+			display: flex;
+			justify-content: center;
+			gap: 24px;
+			margin: 32px 0 24px 0;
+		}
+		.dining-card {
+			background: #fafafa;
+			border-radius: 10px;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+			width: 170px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 18px 12px 12px 12px;
+			transition: box-shadow 0.2s;
+		}
+		.dining-card:hover {
+			box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+		}
+		.img-holder {
+			width: 100px;
+			height: 100px;
+			border-radius: 8px;
+			background: #e0e0e0;
+			margin-bottom: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2.2rem;
+			color: #bbb;
+		}
+		.card-title {
+			font-size: 1.08rem;
+			color: #333;
+			text-align: center;
+			font-weight: 500;
+		}
 		* {
 			margin: 0;
 			padding: 0;
@@ -205,39 +249,85 @@
 	<nav>
 		<div class="logo"><a href="index.html">Gokarna</a></div>
 		<ul class="nav-links" id="navLinks">
-			<li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-			<li><a href="services.html"><i class="fa-solid fa-calendar-week"></i> Services</a></li>
-			<li><a href="rooms.html"><i class="fa-solid fa-hospital"></i> Rooms</a></li>
-			<li><a href="dining.html" class="active"><i class="fa-solid fa-utensils"></i> Dining</a></li>
-			<li><a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a></li>
-			<li><a href="gallery.html"><i class="fa-solid fa-image"></i> Gallery</a></li>
+		<li><a href="../index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+		<li><a href="about.html"><i class="fa-solid fa-address-card"></i> About</a></li>
+		<li><a href="services.html"><i class="fa-solid fa-calendar-week"></i> Services</a></li>
+		<li><a href="rooms.html"><i class="fa-solid fa-hospital"></i> Rooms</a></li>
+		<li><a href="dining.html" class="active"><i class="fa-solid fa-utensils"></i> Dining</a></li>
+		<li><a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a></li>
+		<li><a href="gallery.html"><i class="fa-solid fa-image"></i> Gallery</a></li>
 		</ul>
 		<div class="menu-toggle" id="menuToggle">&#9776;</div>
 	</nav>
 	<section class="dining-section">
-		<h2>Dining Experience</h2>
-		<p>Enjoy a variety of delicious cuisines in our elegant dining area. Our chefs prepare fresh meals daily, offering both local and international dishes. Whether you are here for breakfast, lunch, or dinner, we promise a memorable dining experience.</p>
-		<button class="menu-btn" onclick="document.getElementById('menuPopup').style.display='flex'">View Menu</button>
+			<h2>Dining Experience</h2>
+			<p>Enjoy a variety of delicious cuisines in our elegant dining area. Our chefs prepare fresh meals daily, offering both local and international dishes. Whether you are here for breakfast, lunch, or dinner, we promise a memorable dining experience.</p>
+				<div class="dining-cards">
+					<div class="dining-card">
+						<div class="img-holder" style="background-image:url('../gallery/signature_dish.jpg'); background-size:cover; background-position:center;"></div>
+						<div class="card-title">Signature Dish</div>
+					</div>
+					<div class="dining-card">
+						<div class="img-holder" style="background-image:url('../gallery/vegetarian_special.jpg'); background-size:cover; background-position:center;"></div>
+						<div class="card-title">Vegetarian Special</div>
+					</div>
+					<div class="dining-card">
+						<div class="img-holder" style="background-image:url('../gallery/desert_delight.jpg'); background-size:cover; background-position:center;"></div>
+						<div class="card-title">Dessert Delight</div>
+					</div>
+				</div>
+			<button class="menu-btn" onclick="document.getElementById('menuPopup').style.display='flex'">View Menu</button>
 	</section>
 	<div class="menu-popup" id="menuPopup">
-		<div class="menu-popup-content">
+		<div class="menu-popup-content" id="menuPopupContent">
 			<h3>Today's Menu</h3>
 			<ul style="list-style:none; padding:0; margin:18px 0;">
-				<li>Grilled Chicken with Herbs</li>
-				<li>Vegetarian Pasta Primavera</li>
-				<li>Classic Caesar Salad</li>
-				<li>Fresh Fruit Platter</li>
-				<li>Chef's Special Soup</li>
+				<li class="menu-item" data-bg="#ffe0e0">Grilled Chicken with Herbs</li>
+				<li class="menu-item" data-bg="#e0ffe0">Vegetarian Pasta Primavera</li>
+				<li class="menu-item" data-bg="#e0e0ff">Classic Caesar Salad</li>
+				<li class="menu-item" data-bg="#fffbe0">Fresh Fruit Platter</li>
+				<li class="menu-item" data-bg="#e0f7ff">Chef's Special Soup</li>
 			</ul>
 			<button class="close-popup" onclick="document.getElementById('menuPopup').style.display='none'">Close</button>
 		</div>
 	</div>
 	<script>
-		const menuToggle = document.getElementById("menuToggle");
-		const navLinks = document.getElementById("navLinks");
-		menuToggle.addEventListener("click", () => {
-			navLinks.classList.toggle("open");
-		});
+				const menuToggle = document.getElementById("menuToggle");
+				const navLinks = document.getElementById("navLinks");
+				menuToggle.addEventListener("click", () => {
+						navLinks.classList.toggle("open");
+				});
+
+				const bgImages = [
+					'../gallery/bar.png',
+					'../gallery/durbar_dining.png'
+				];
+				let bgIndex = 0;
+				function setDiningBg() {
+					document.body.classList.add('dining-bg');
+					document.body.style.backgroundImage = `url('${bgImages[bgIndex]}')`;
+				}
+				setDiningBg();
+				setInterval(() => {
+					bgIndex = (bgIndex + 1) % bgImages.length;
+					setDiningBg();
+				}, 5000);
+
+				const menuPopup = document.getElementById('menuPopup');
+				const menuPopupContent = document.getElementById('menuPopupContent');
+				const menuItems = document.querySelectorAll('.menu-item');
+				let originalBg = '';
+				if (menuPopupContent) {
+					originalBg = menuPopupContent.style.background;
+					menuItems.forEach(item => {
+						item.addEventListener('mouseenter', function() {
+							menuPopupContent.style.background = this.getAttribute('data-bg');
+						});
+						item.addEventListener('mouseleave', function() {
+							menuPopupContent.style.background = originalBg;
+						});
+					});
+				}
 	</script>
 </body>
 </html>
