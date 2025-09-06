@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Rooms | Hospitality Management</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		body.rooms-bg {
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			transition: background-image 0.7s cubic-bezier(.4,0,.2,1);
+		}
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: "Poppins", sans-serif;
+		}
+		body {
+			background: #f4f4f4;
+		}
+		nav {
+			background: #000000;
+			color: #fff;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 15px 30px;
+			height: 70px;
+			position: sticky;
+			top: 0;
+			z-index: 1000;
+			box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+		}
+		.logo a {
+			font-size: 1.6rem;
+			font-weight: 600;
+			letter-spacing: 1px;
+			text-decoration: none;
+			color: #ffd54f;
+			transition: color 0.3s ease;
+		}
+		.logo a:hover {
+			color: #fff;
+		}
+		.nav-links {
+			list-style: none;
+			display: flex;
+			gap: 20px;
+		}
+		.nav-links li {
+			display: inline-block;
+		}
+		.nav-links a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 1rem;
+			font-weight: 500;
+			transition: all 0.3s ease;
+			padding: 8px 12px;
+			border-radius: 6px;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+		}
+		.nav-links a:hover, .nav-links .active {
+			background: #ffd54f;
+			color: #000;
+			transform: translateY(-3px);
+		}
+		.menu-toggle {
+			display: none;
+			font-size: 1.8rem;
+			cursor: pointer;
+			color: #fff;
+			transition: transform 0.3s ease;
+		}
+		.menu-toggle:hover {
+			transform: rotate(90deg);
+		}
+		@media (max-width: 650px) {
+			.nav-links {
+				position: absolute;
+				top: 70px;
+				right: 0;
+				background: #111;
+				width: 220px;
+				max-height: 0;
+				overflow: hidden;
+				flex-direction: column;
+				align-items: flex-start;
+				transition: max-height 0.5s ease-in-out;
+				border-left: 2px solid #ffd54f;
+				box-shadow: -5px 5px 15px rgba(0,0,0,0.5);
+			}
+			.nav-links.open {
+				max-height: 400px;
+				animation: slideDown 0.5s ease forwards;
+			}
+			.nav-links li {
+				width: 100%;
+			}
+			.nav-links a {
+				width: 100%;
+				padding: 12px 20px;
+			}
+			.menu-toggle {
+				display: block;
+			}
+		}
+		@keyframes slideDown {
+			0% { opacity: 0; transform: translateY(-20px); }
+			100% { opacity: 1; transform: translateY(0); }
+		}
+		.rooms-section {
+			max-width: 900px;
+			margin: 60px auto 0 auto;
+			background: #fff;
+			padding: 36px 32px;
+			border-radius: 12px;
+			box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+		}
+		.rooms-section h2 {
+			font-size: 2rem;
+			color: #222;
+			margin-bottom: 18px;
+			font-weight: 600;
+			text-align: center;
+		}
+		.room-cards {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 28px;
+			justify-content: center;
+		}
+		.room-card {
+			background: #fafafa;
+			border-radius: 10px;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+			width: 260px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 18px 12px 18px 12px;
+			transition: box-shadow 0.2s;
+		}
+		.room-card:hover {
+			box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+		}
+		.room-img {
+			width: 100%;
+			height: 160px;
+			border-radius: 8px;
+			background: #e0e0e0;
+			margin-bottom: 12px;
+			background-size: cover;
+			background-position: center;
+		}
+		.room-title {
+			font-size: 1.15rem;
+			color: #333;
+			text-align: center;
+			font-weight: 600;
+			margin-bottom: 6px;
+		}
+		.room-info {
+			font-size: 1rem;
+			color: #555;
+			margin-bottom: 4px;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+		.room-price {
+			color: #b8860b;
+			font-weight: 500;
+			font-size: 1.05rem;
+		}
+</style>
+<style>
+	.container {
+		max-width: 600px;
+		margin: 40px auto;
+		background: #fff;
+		border-radius: 16px;
+		box-shadow: 0 2px 16px #0001;
+		padding: 32px;
+	}
+	.booked-room { margin-top: 32px; }
+	.booked-room img { width: 100%; border-radius: 12px; margin-bottom: 16px; }
+	.no-booking { color: #888; text-align: center; margin-top: 48px; }
+</style>
+</head>
+<body>
+	<nav>
+		<div class="logo"><a href="../index.html"><i class="fa-solid fa-house"></i> Gokarna</a></div>
+		<ul class="nav-links" id="navLinks">
+			<li><a href="../pages/about.html"><i class="fa-solid fa-address-card"></i> About</a></li>
+			<li><a href="../pages/services.html"><i class="fa-solid fa-calendar-week"></i> Services</a></li>
+			<li><a href="../pages/rooms.html" class="active"><i class="fa-solid fa-hospital"></i> Rooms</a></li>
+			<li><a href="../pages/dining.html"><i class="fa-solid fa-utensils"></i> Dining</a></li>
+			<li><a href="../pages/contact.html"><i class="fa-solid fa-address-book"></i> Contact</a></li>
+			<li><a href="../pages/gallery.html"><i class="fa-solid fa-image"></i> Gallery</a></li>
+		</ul>
+		<div class="menu-toggle" id="menuToggle">&#9776;</div>
+	</nav>
+	<div class="container">
+		<h2>Your Booking</h2>
+		<div id="booking-details" class="booked-room"></div>
+		<div id="no-booking" class="no-booking" style="display:none;">No room has been booked yet.</div>
+	</div>
+	<script>
+	// Display booked room from localStorage
+	function showBooking() {
+		const booking = localStorage.getItem('bookedRoom');
+		const detailsDiv = document.getElementById('booking-details');
+		const noBookingDiv = document.getElementById('no-booking');
+		if (booking) {
+			try {
+				const data = JSON.parse(booking);
+				detailsDiv.innerHTML = `
+					<img src="${data.image}" alt="${data.title}">
+					<h3>${data.title}</h3>
+					<p><strong>Bed:</strong> ${data.bed}</p>
+					<p><strong>View:</strong> ${data.view}</p>
+					<p><strong>Size:</strong> ${data.size}</p>
+					<p><strong>Occupancy:</strong> ${data.occupancy}</p>
+					<p><strong>Amenities:</strong> ${data.amenities}</p>
+					<p style="color:#eab308;font-weight:600;">Price: ${data.price}</p>
+				`;
+				noBookingDiv.style.display = 'none';
+			} catch (e) {
+				detailsDiv.innerHTML = '';
+				noBookingDiv.style.display = 'block';
+			}
+		} else {
+			detailsDiv.innerHTML = '';
+			noBookingDiv.style.display = 'block';
+		}
+	}
+	showBooking();
+	</script>
+</body>
+</html>

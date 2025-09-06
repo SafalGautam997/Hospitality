@@ -165,9 +165,18 @@
         .book-btn:hover {
             background: #ffe082;
         }
+        /* ...existing code... */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .room-card, .card, main, .content {
+            position: relative;
+            z-index: 1;
+            margin-top: 24px; /* Small gap below navbar */
+        }
     </style>
-    <nav>
-        <div class="logo"><a href="../../index.html">Gokarna</a></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="../about.html"><i class="fa-solid fa-address-card"></i> About</a></li>
             <li><a href="../services.html"><i class="fa-solid fa-calendar-week"></i> Services</a></li>
@@ -193,7 +202,7 @@
                 <b>Amenities:</b> Free Wi-Fi, Air Conditioning, Flat-screen TV, Work Desk, Ensuite Bathroom, Room Service
             </div>
             <div class="room-detail-price">Price: 10,000</div>
-            <button class="book-btn">Book Your Stay</button>
+            <button class="book-btn" id="book-btn">Book Your Stay</button>
         </section>
         </section>
 <script>
@@ -210,6 +219,23 @@ window.addEventListener('scroll', function() {
         goTopBtn.style.display = 'none';
     }
 });
+</script>
+<script>
+// Book button logic
+document.getElementById('book-btn').onclick = function() {
+    const room = {
+        title: 'Club Room',
+        image: '../gallery/Club-king.png',
+        bed: 'King/Twin',
+        view: 'Forest/Garden',
+        size: '32 m²',
+        occupancy: '2 adults',
+        amenities: 'Free Wi-Fi, Air Conditioning, Flat-screen TV, Minibar, Ensuite Bathroom, Room Service',
+        price: '15,000'
+    };
+    localStorage.setItem('bookedRoom', JSON.stringify(room));
+    window.location.href = '../book.html';
+}
 </script>
 </body>
 </html>
