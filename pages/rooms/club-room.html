@@ -167,7 +167,10 @@
         </ul>
         <div class="menu-toggle" id="menuToggle">&#9776;</div>
     </nav>
-    <section class="room-detail-section">
+    <section class="room-detail-section" style="position:relative;">
+        <a href="../rooms.html" style="position:absolute;top:-32px;left:-32px;z-index:10;text-decoration:none;background:#ffd54f;color:#000;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.13);font-size:1.5rem;transition:background 0.2s;cursor:pointer;" title="Back to Rooms">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
         <div class="room-detail-title">Club Room</div>
         <div class="room-detail-img" style="background-image:url('../../gallery/A-twin-bedroom-hotel-room-with-blue-beddings-blue-curtained-and-a-header-wall-made-with-wood.jpg');"></div>
         <div class="room-detail-info">
@@ -180,12 +183,22 @@
         <div class="room-detail-price">Price: 20,000</div>
         <button class="book-btn">Book Your Stay</button>
     </section>
-    <script>
-        const menuToggle = document.getElementById("menuToggle");
-        const navLinks = document.getElementById("navLinks");
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("open");
-        });
-    </script>
+        </section>
+        <button onclick="window.scrollTo({top:0,behavior:'smooth'})" id="goTopBtn" style="position:fixed;bottom:30px;right:30px;z-index:3000;display:none;background:#ffd54f;color:#000;border:none;padding:12px 18px;border-radius:50%;font-size:1.3rem;box-shadow:0 2px 8px rgba(0,0,0,0.18);cursor:pointer;">&#8679;</button>
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+});
+const goTopBtn = document.getElementById('goTopBtn');
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 200) {
+        goTopBtn.style.display = 'block';
+    } else {
+        goTopBtn.style.display = 'none';
+    }
+});
+</script>
 </body>
 </html>
