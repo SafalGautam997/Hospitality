@@ -88,3 +88,13 @@ function submitContactForm() {
   }
   return false;
 }
+
+// Select all gallery images
+const galleryImages = document.querySelectorAll(".gallery-item img");
+
+galleryImages.forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+  });
+});
