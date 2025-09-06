@@ -20,3 +20,31 @@ function moveSlide(direction) {
 setInterval(() => {
   moveSlide(1);
 }, 4000);
+
+
+// Lightbox functionality
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.querySelector(".lightbox-img");
+const closeBtn = document.querySelector(".lightbox .close");
+
+// Select all gallery images
+const galleryImages = document.querySelectorAll(".gallery-item img");
+
+galleryImages.forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+  });
+});
+
+// Close button
+closeBtn.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
+
+// Close when clicking outside the image
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = "none";
+  }
+});

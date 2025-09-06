@@ -18,8 +18,9 @@
       <li><a href="about.html"><i class="fa-solid fa-address-card"></i> About</a></li>
       <li><a href="rooms.html"><i class="fa-solid fa-hospital"></i> Rooms</a></li>
       <li><a href="dining.html"><i class="fa-solid fa-utensils"></i> Dining</a></li>
+      <li><a href="gallery.html"><i class="fa-solid fa-image"></i> Gallery</a></li>
       <li><a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a></li>
-      <li><a href="gallery.html" class="active"><i class="fa-solid fa-image"></i> Gallery</a></li>
+     
     </ul>
     <div class="menu-toggle" id="menuToggle">&#9776;</div>
   </nav>
@@ -78,6 +79,11 @@
       <div class="gallery-item"><img src="gallery/diningbar.webp" alt="Swimming Pool"></div>
     </div>
   </section>
+    <!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" src="" alt="Gallery Image">
+</div>
 
   <!-- Footer -->
   <footer>
@@ -104,5 +110,8 @@
     // Auto slide every 5 seconds
     setInterval(() => showSlide(index + 1), 5000);
   </script>
+
+
 </body>
+<script src="script.js"></script>
 </html>
