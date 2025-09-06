@@ -7,22 +7,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        html, body {
+            height: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
             background: #f4f4f4;
             font-family: "Poppins", sans-serif;
         }
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
         nav {
-            background: #000000;
+            background: #000;
             color: #fff;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding: 0 30px;
             height: 70px;
-            position: sticky;
+            position: relative;
             top: 0;
-            z-index: 1000;
+            left: 0;
+            right: 0;
+            width: 100vw;
+            margin: 0 !important;
             box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+        .logo, .nav-links, .menu-toggle {
+            margin: 0 !important;
+            padding: 0 !important;
         }
         .logo a {
             font-size: 1.6rem;
@@ -153,8 +167,6 @@
             background: #ffe082;
         }
     </style>
-</head>
-<body>
     <nav>
         <div class="logo"><a href="../../index.html">Gokarna</a></div>
         <ul class="nav-links" id="navLinks">
@@ -165,6 +177,8 @@
             <li><a href="../contact.html"><i class="fa-solid fa-address-book"></i> Contact</a></li>
             <li><a href="../gallery.html"><i class="fa-solid fa-image"></i> Gallery</a></li>
         </ul>
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+    </nav>
         <div class="menu-toggle" id="menuToggle">&#9776;</div>
         <section class="room-detail-section" style="position:relative;">
             <a href="../rooms.html" style="position:absolute;top:-32px;left:-32px;z-index:10;text-decoration:none;background:#ffd54f;color:#000;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.13);font-size:1.5rem;transition:background 0.2s;cursor:pointer;" title="Back to Rooms">
