@@ -1,0 +1,92 @@
+const pages = ['home', 'about', 'gallery', 'packages', 'myorder', 'contact'];
+
+function showPage(page) {
+    pages.forEach(p => {
+        const el = document.getElementById(`${p}-page`);
+        if (el) {
+            el.style.display = p === page ? 'block' : 'none';
+        }
+    });
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        if (link.dataset.page === page) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const page = link.dataset.page;
+            showPage(page);
+        });
+    });
+    showPage('home');
+});
+
+function addToOrder(packageId) {
+    let orders = JSON.parse(localStorage.getItem('orders') || '[]');
+    if (!orders.includes(packageId)) {
+        orders.push(packageId);
+        localStorage.setItem('orders', JSON.stringify(orders));
+    }
+    updateOrderCount();
+}
+
+function removeFromOrder(packageId) {
+    let orders = JSON.parse(localStorage.getItem('orders') || '[]');
+    orders = orders.filter(id => id !== packageId);
+    localStorage.setItem('orders', JSON.stringify(orders));
+    updateOrderCount();
+    renderMyOrder();
+}
+
+function updateOrderCount() {
+    const count = (JSON.parse(localStorage.getItem('orders') || '[]')).length;
+    const orderCountEl = document.getElementById('order-count');
+    if (orderCountEl) {
+        orderCountEl.textContent = count;
+    }
+}
+
+function renderMyOrder() {
+    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+    const orderList = document.getElementById('myorder-list');
+    if (orderList) {
+        orderList.innerHTML = '';
+        if (orders.length === 0) {
+            orderList.innerHTML = '<li>No orders yet.</li>';
+        } else {
+            orders.forEach(id => {
+                const li = document.createElement('li');
+                li.textContent = `Package: ${id}`;
+                const btn = document.createElement('button');
+                btn.textContent = 'Remove';
+                btn.onclick = () => removeFromOrder(id);
+                li.appendChild(btn);
+                orderList.appendChild(li);
+            });
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateOrderCount();
+    renderMyOrder();
+});
+
+function submitContactForm() {
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const message = document.getElementById('contact-message').value;
+    if (name && email && message) {
+        alert('Thank you for contacting us!');
+        document.getElementById('contact-form').reset();
+    }
+    return false;
+}
